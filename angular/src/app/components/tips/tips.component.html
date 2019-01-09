@@ -1,0 +1,26 @@
+<main class="container">
+  <div class="tags">
+    <span class="tag tag--active" data-type="all">All</span>
+    <span class="tag" data-type="text">Tips</span>
+    <span class="tag" data-type="video">Videos</span>
+    <span class="tag" data-type="meme">Memes</span>
+  </div>
+  <section class="tips" *ngFor="let tip of tips">
+    <div class="tip__text" *ngIf="tip.acf.tip_type === 'Text'">
+      <h2>{{tip.title.rendered}}</h2>
+      <p>{{tip.acf.tip_text}}</p>
+    </div>
+    <div class="tip__text" *ngIf="tip.acf.tip_type === 'Video'">
+      <h2>{{tip.title.rendered}}</h2>
+      <video id='video'>
+        <source src='https://vimeo.com/295835220'>
+      </video>
+    </div>
+    <div class="tip__text" *ngIf="tip.acf.tip_type === 'Meme'">
+      <h2>{{tip.title.rendered}}</h2>
+      <figure>
+        <img class="tip__meme" src="{{tip.acf.tip_meme.url}}">
+      </figure>
+    </div>
+  </section>
+</main>

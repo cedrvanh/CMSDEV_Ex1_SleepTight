@@ -1,0 +1,16 @@
+@import 'src/scss/abstracts/colors';
+@import 'src/scss/abstracts/variables';
+
+.hashtag {    
+    margin: 1rem 0 2rem 0;
+    
+    & img {
+        border-radius: $primary-radius;
+    }
+}
+
+.hashtag__body {
+    & > span {
+        color: $light-text-color;
+    }
+}

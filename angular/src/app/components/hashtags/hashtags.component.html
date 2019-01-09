@@ -1,0 +1,25 @@
+<main class="container">
+  <h1>Foto Contest</h1>
+  <button class="btn btn-primary">
+    Upload een foto
+  </button>
+  <div class="form-group">
+    <select class="form-control" name="filter">
+      <option value="new">Nieuwe Foto's</option>
+      <option value="likes">Populaire Foto's</option>
+    </select>
+  </div>
+  <section class="hashtags" *ngFor="let hashtag of hashtags">
+    <div class="hashtag">
+      <figure>
+        <img src="{{hashtag._embedded['wp:featuredmedia'][0].source_url}}">
+      </figure>
+      <div class="hashtag__body">
+        <span>{{hashtag._embedded.author[0].name}}</span>
+        <span *ngIf="hashtag.acf.likes">
+          {{countLikes(hashtag.acf.likes)}} likes
+        </span>
+      </div>
+    </div>
+  </section>
+</main>

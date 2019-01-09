@@ -1,0 +1,20 @@
+@import 'src/scss/abstracts/colors';
+@import 'src/scss/abstracts/variables';
+
+.tags {
+    display: flex;
+    justify-content: center;
+}
+
+.tag {
+    color: $light-text-color;
+    padding: 0.5rem 1.5rem;
+    margin: 1rem 0 0 0;
+    border-radius: $primary-radius;
+    font-weight: 700;
+}
+
+.tag--active {
+    color: $primary-button-color;
+    background: $accent-color;
+}

@@ -1,0 +1,52 @@
+nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 1rem 1.5rem;
+
+    img {
+        width: 2.3rem;
+    }
+}
+
+
+.nav__side {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: $shadow-color;
+    transition: all .5s ease;
+
+    .nav__menu {
+        list-style: none;
+        padding: 0;
+
+        .nav__menu--item {
+            box-sizing: border-box;
+            background: $accent-color;
+            border-bottom: 1px solid $primary-color;
+            padding: 1.5rem;
+            color: white;
+
+            & > a{
+                padding: 1.5rem;
+            }
+        }
+
+        & > i {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+        }
+    }
+}
+
+.brand {
+    margin: 0;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+

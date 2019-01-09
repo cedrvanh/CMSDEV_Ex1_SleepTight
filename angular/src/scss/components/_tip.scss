@@ -1,0 +1,15 @@
+.tip__text {
+    background: $accent-color;
+    border-radius: $primary-radius;
+    padding: 1rem;
+    margin: 1rem 0;
+
+    & > h2 {
+       color: $primary-button-color;
+       margin-bottom: 0.75rem;
+    }
+}
+
+.tip__meme {
+    border-radius: $primary-radius;
+}

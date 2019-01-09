@@ -1,0 +1,105 @@
+<main class="container quiz">
+  <div class="quiz__container" [innerHTML]="output.join('') | sanitizeHtml" ></div>
+
+  <section class="quiz__buttons">
+      <span class="error"></span>
+    <button class="btn btn-primary" id="previous" (click)="previousSlide()">Previous Question</button>
+    <button class="btn btn-primary" id="next" (click)="nextSlide()">Next Question</button>
+    <button class="btn btn-primary" id="submit" (click)="onSubmit()">Submit Quiz</button>
+  </section>
+</main>
+<!-- <section class="quiz__section">
+  <h1>Slaap...</h1>
+  <label for="q1a1">
+    <input type="radio" name="q1a1" value="1">
+    I &lt;3 it
+  </label>
+  <label for="q1a2">
+    <input type="radio" name="q1a2" value="2">
+    Is nodig maar ik heb er niet altijd even veel zin in...
+  </label>
+  <label for="q1a3">
+    <input type="radio" name="q1a3" value="3">
+    Zo nutteloos, ik doe liever iets anders!
+  </label>
+</section>
+
+<section class="quiz__section">
+  <h3>Lang uitslapen in het weekend...</h3>
+  <label for="q1o1">
+    <input type="radio" name="q1" value="1">
+    Sowiesooo! Mij zie je voor 10u niet verschijnen!
+  </label>
+  <label for="q1o2">
+    <input type="radio" name="q1" value="2">
+    Hoeft niet, ik word wakker op mijn vast uur.
+  </label>
+  <label for="q1o3">
+    <input type="radio" name="q1" value="3">
+    Is voor mij niet later dan 9u-9u30
+  </label>
+</section>
+
+<section class="quiz__section">
+  <h3>Slaap jij makkelijk in?</h3>
+  <label for="q1o1">
+    <input type="radio" name="q1" value="1">
+    Ik lig vaak nog lang te woelen en te piekeren.
+  </label>
+  <label for="q1o2">
+    <input type="radio" name="q1" value="2">
+    Ik slaap relatief snel in.
+  </label>
+  <label for="q1o3">
+    <input type="radio" name="q1" value="3">
+    Ik slaap vrijwel meteen in.
+  </label>
+</section>
+
+<section class="quiz__section">
+  <h3>Ochtendmodus</h3>
+  <label for="q1o1">
+    <input type="radio" name="q1" value="1">
+    Zombie
+  </label>
+  <label for="q1o2">
+    <input type="radio" name="q1" value="2">
+    Fris als 'n vis
+  </label>
+  <label for="q1o3">
+    <input type="radio" name="q1" value="3">
+    Groggy maar dat gaat snel over
+  </label>
+</section>
+
+<section class="quiz__section">
+  <h3>Overdag</h3>
+  <label for="q1o1">
+    <input type="radio" name="q1" value="1">
+    Blijf ik de hele dag door geeuwen.
+  </label>
+  <label for="q1o2">
+    <input type="radio" name="q1" value="2">
+    Kom ik er meestal tegen de middag wel door.
+  </label>
+  <label for="q1o3">
+    <input type="radio" name="q1" value="3">
+    Word ik tegen de avond goed moe.
+  </label>
+</section>
+
+<section class="quiz__section">
+  <h3>Screen addict or angel?</h3>
+  <label for="q1o1">
+    <input type="radio" name="q1" value="1">
+    Gaming / Netflix is life. Hoe later hoe liever!
+  </label>
+  <label for="q1o2">
+    <input type="radio" name="q1" value="2">
+    Mijn gsm ligt in mijn kamer, maar ik gebruik hem niet meer kort voor het slapengaan.
+  </label>
+  <label for="q1o3">
+    <input type="radio" name="q1" value="3">
+    Mijn smartphone komt mijn kamer niet in!
+  </label>
+</section> -->

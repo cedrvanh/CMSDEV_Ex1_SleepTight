@@ -1,0 +1,19 @@
+<main class="container" *ngIf="user">
+  <section class="user__head">
+      <figure>
+        <img src="{{user.avatar_urls[96]}}">
+      </figure>
+      <h1>{{user.name}}</h1>
+      <span>Slaap Type: {{user.acf.sleep_type}}</span>
+  </section>
+  <section class="user__info">
+    <div class="user__info--block">
+      <span class="user__info--span">Naam:</span>
+      <h2>{{user.name || 'Niet bekend'}}</h2>
+    </div>
+    <div class="user__info--block">
+      <span class="user__info--span">School:</span>
+      <h2>{{user.acf.school || 'Niet bekend'}}</h2>
+    </div>
+  </section>
+</main>

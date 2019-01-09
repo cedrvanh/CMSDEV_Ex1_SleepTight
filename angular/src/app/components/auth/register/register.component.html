@@ -1,0 +1,43 @@
+<main class="container">
+  <section class="heading">
+    <h1 class="brand">Registreren</h1>
+  </section>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="text" formControlName="firstname" class="form-control" placeholder="Voornaam" name="firstname">
+      <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+        <div *ngIf="f.firstname.errors.required">Voornaam vereist</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text" formControlName="lastname" class="form-control" placeholder="Achternaam" name="lastname">
+      <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+        <div *ngIf="f.lastname.errors.required">Achternaam vereist</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text" formControlName="username" class="form-control" placeholder="Gebruikersnaam" name="username">
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Gebruikersnaam vereist</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="email" formControlName="email" class="form-control" placeholder="E-mail" name="email">
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors">Email vereist</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="password" formControlName="password" class="form-control" placeholder="Wachtwoord" name="password">
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Wachtwoord vereist</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">
+        Registreren
+      </button>
+    </div>
+    <a routerLink="/login">Ik heb al een account. Log in</a>
+  </form>
+</main>
