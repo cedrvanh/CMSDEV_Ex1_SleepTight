@@ -9,12 +9,18 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class FriendsComponent implements OnInit {
   public friends;
+  public term: string;
+  public id: number;
 
   constructor(
     private authService: AuthService,
     private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getCurrentUser()
+      .subscribe(res => {
+        this.id = res.id;
+      });
     this.getAllFriends();
   }
 
@@ -22,7 +28,21 @@ export class FriendsComponent implements OnInit {
     this.userService.getAllUsers()
       .subscribe(res => {
         this.friends = res;
-        console.log(this.friends);
+      });
+  }
+
+  // Doesn't work yet
+  // excludeCurrentUser(friends) {
+  //   friends.filter((friend) => {
+  //     return friend.id !== this.id;
+  //   });
+  // }
+
+  searchUser(term: string) {
+    console.log(this.term);
+    this.userService.searchUser(term)
+      .subscribe(res => {
+        this.friends = res;
       });
   }
 }

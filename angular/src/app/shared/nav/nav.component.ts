@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
-
-
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,30 +8,41 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NavComponent implements OnInit {
+  @Input() title;
+
   public menuOpen: HTMLElement;
   public menuClosed: HTMLElement;
   public menuList: HTMLElement;
-  public isToggled;
 
-  constructor() { }
+  public toggled: boolean;
+  public id: number;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
     this.menuOpen = document.getElementById('menuOpen');
     this.menuClosed = document.getElementById('menuClose');
-
-    this.menuOpen.addEventListener('click', this.toggleNav);
-    this.menuClosed.addEventListener('click', this.toggleNav);
+    this.menuList = document.querySelector('.nav__side');
   }
 
   toggleNav()  {
-    this.menuList = document.querySelector('.nav__side');
-
-    if (!this.isToggled) {
+    if (!this.toggled) {
       this.menuList.style.left = '0';
-      this.isToggled = true;
+      this.toggled = true;
     } else {
       this.menuList.style.left = '-100%';
-      this.isToggled = false;
+      this.toggled = false;
     }
+  }
+
+  goToProfile() {
+      this.router.navigate(['profile']);
+  }
+
+  onLogout() {
+    this.authService.logout();
+    this.router.navigate(['/landing']);
   }
 }

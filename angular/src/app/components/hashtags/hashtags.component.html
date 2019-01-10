@@ -1,25 +1,42 @@
+<header class="header">
+    <app-nav title="Foto Contest"></app-nav>
+</header>
+
 <main class="container">
-  <h1>Foto Contest</h1>
-  <button class="btn btn-primary">
+  <a routerLink="/hashtags/create" class="btn btn-primary">
     Upload een foto
-  </button>
+  </a>
   <div class="form-group">
     <select class="form-control" name="filter">
       <option value="new">Nieuwe Foto's</option>
       <option value="likes">Populaire Foto's</option>
     </select>
   </div>
-  <section class="hashtags" *ngFor="let hashtag of hashtags">
-    <div class="hashtag">
-      <figure>
-        <img src="{{hashtag._embedded['wp:featuredmedia'][0].source_url}}">
-      </figure>
-      <div class="hashtag__body">
-        <span>{{hashtag._embedded.author[0].name}}</span>
-        <span *ngIf="hashtag.acf.likes">
-          {{countLikes(hashtag.acf.likes)}} likes
-        </span>
+  <ng-container *ngIf="hashtags; else elseHashtags">
+    <section class="hashtags" *ngFor="let photo of hashtags">
+      <div class="photo">
+        <!-- <i class="icon">
+          <img src="../../../assets/svg/heart.svg">
+        </i> -->
+        <figure>
+          <img src="{{photo._embedded['wp:featuredmedia'][0].source_url}}">
+        </figure>
+        <div class="photo__body">
+          <div>
+            <p>{{photo._embedded.author[0].name}}</p>
+            <p *ngIf="photo.acf.likes">
+              {{countLikes(photo.acf.likes)}} likes
+            </p>
+          </div>
+          <div>
+            <span class="hashtag">#{{photo._embedded['wp:term'][0][0].name}}</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </ng-container>
+
+  <ng-template #elseHashtags>
+    Jammer genoeg kunnen we geen hashtags vinden
+  </ng-template>
 </main>

@@ -1,7 +1,7 @@
 @import 'src/scss/abstracts/colors';
 @import 'src/scss/abstracts/variables';
 
-.hashtag {    
+.photo {    
     margin: 1rem 0 2rem 0;
     
     & img {
@@ -9,8 +9,15 @@
     }
 }
 
-.hashtag__body {
+.photo__body {
+    display: flex;
+    justify-content: space-between;
+
     & > span {
         color: $light-text-color;
     }
+}
+
+.hashtag {
+    color: $primary-button-color;
 }

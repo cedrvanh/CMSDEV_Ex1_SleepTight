@@ -1,42 +1,49 @@
 <nav>
   <div class="nav__column">
     <i class="icon" id="menuOpen">
-      <img src="../../../assets/svg/align-left.svg" alt="Hamburger Icon">
+      <img (click)="toggleNav()" src="../../../assets/svg/align-left.svg" alt="Hamburger Icon">
     </i>
     <div class="nav__side">
-      <ul class="nav__menu">
-        <i class="icon" id="menuClose">
-          <img src="../../../assets/svg/cross.svg" alt="Close Menu Icon">
-        </i>
+      <i (click)="toggleNav()" class="icon" id="menuClose">
+        <img src="../../../assets/svg/cross.svg" alt="Close Menu Icon">
+      </i>
+      <ul>
         <li class="nav__menu--item">
-          <a href="#">Home</a>
+          <a routerLink="/home">Home</a>
         </li>
-        <li class="nav__menu--item">
-            <a href="#">Login</a>
-        </li>
-        <li class="nav__menu--item">
-            <a href="#">Register</a>
-        </li>
-        <li class="nav__menu--item">
-            <a href="#"> Stats</a>
-        </li>
-        <li class="nav__menu--item">
-            <a href="#">Friends</a>
-        </li>
-        <li class="nav__menu--item">
-            <a href="#">Tips</a>
-        </li>
-        <li class="nav__menu--item">
-            <a href="#">Settings</a>
-        </li>
+        <ng-container *ngIf="authService.isAuthenticated()">
+          <li class="nav__menu--item">
+              <a routerLink="/tracking">Tracking</a>
+          </li>
+          <li class="nav__menu--item">
+              <a routerLink="/friends">Vrienden</a>
+          </li>
+          <li class="nav__menu--item">
+              <a routerLink="/tips">Tips & Tricks</a>
+          </li>
+          <li class="nav__menu--item">
+              <a routerLink="/hashtags">Foto Wedstrijd</a>
+          </li>
+          <li class="nav__menu--item">
+              <a (click)="onLogout()">Logout</a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="!authService.isAuthenticated()">
+          <li class="nav__menu--item">
+              <a routerLink="/login">Login</a>
+          </li>
+          <li class="nav__menu--item">
+              <a routerLink="/register">Register</a>
+          </li>
+        </ng-container>
       </ul>
     </div>  
   </div>
   <div class="nav__column">
-    <h1 class="brand">Sleep Tight</h1>
+    <h2 class="brand">{{title}}</h2>
   </div>
   <div class="nav__column">
-    <i class="icon">
+    <i (click)="goToProfile()" class="icon">
       <img src="../../../assets/svg/user.svg" alt="Profile Icon">
     </i>
   </div>

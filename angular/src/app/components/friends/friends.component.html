@@ -1,21 +1,29 @@
-<main class="container">
-    <h1>Jouw vrienden</h1>
-    <div class="form-group">
-      <input type="text" placeholder="Zoek je vriend" class="form-control">
-    </div>
-    <ng-container *ngIf="friends">
-      
-      <section class="friends">
-        <div class="friend__element" *ngFor="let friend of friends">
-          <figure>
-            <img src="{{friend.avatar_urls[96]}}">
-          </figure>
-          <div class="friend__element--content">
-            <h3>{{friend.name}}</h3>
-            <span>{{friend.acf.school}}</span>
-          </div>
-        </div>
-      </section>
+<header class="header">
+    <app-nav title="Vrienden"></app-nav>
+</header>
 
+<main class="container">
+    <div class="form-group">
+      <input type="text" placeholder="Zoek je vriend" class="form-control" [(ngModel)]="term" (input)="searchUser(term)">
+    </div>
+
+    <ng-container *ngIf="friends; elseFriends">
+        <section class="friends">
+          <div *ngFor="let friend of friends">
+            <a routerLink="/friend/{{friend.id}}" class="friend__element">
+              <figure>
+                <img src="{{friend.avatar_urls[96]}}">
+              </figure>
+              <div class="friend__element--content">
+                <h3>{{friend.name}}</h3>
+                <span>{{friend.acf.school}}</span>
+              </div>
+            </a>
+          </div>
+        </section>
     </ng-container>
+
+    <ng-template #elseFriends>
+      Jammer genoeg hebben we geen vrienden gevonden
+    </ng-template>
 </main>

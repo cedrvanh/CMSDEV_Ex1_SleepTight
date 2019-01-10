@@ -1,16 +1,24 @@
 .btn {
+    display: block;
     width: 100%;
     outline: none;
     padding: 1rem;
-    margin: 0.5rem 0;
+    margin: 1rem 0;
+    font-weight: 700;
+    text-align: center;
     border: none;
     box-sizing: border-box;
+    transition: all .3s ease;
 }
 
 .btn-primary {
     border-radius: $primary-radius;
     background: $primary-button-color;
     color: white;
+
+    &:hover {
+        background: #004ECB;
+    }
 }
 
 .btn-secondary {

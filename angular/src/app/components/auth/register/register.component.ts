@@ -47,6 +47,6 @@ export class RegisterComponent implements OnInit {
       password:  this.f.password.value
     };
 
-    console.log(this.f.password.value);
+    this.router.navigate(['/home']);
   }
 }

@@ -27,4 +27,8 @@ export class UserService {
   public postFields(id: number, data: object): Observable<any> {
     return this.httpClient.post(`${environment.api.url}${environment.api.endPoints.acf}/users/${id}`, data);
   }
+
+  public searchUser(term: string): Observable<any> {
+    return this.httpClient.get(`${environment.api.url}${environment.api.endPoints.users}?search=${term}`);
+  }
 }

@@ -1,36 +1,39 @@
-<main class="container">
+<main class="container flex--center">
   <section class="heading">
     <h1 class="brand">Registreren</h1>
   </section>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <input type="text" formControlName="firstname" class="form-control" placeholder="Voornaam" name="firstname">
+      <input type="text" formControlName="firstname" class="form-control" placeholder="Voornaam" name="firstname" ngClass="{{submitted && f.firstname.errors ? 'is-invalid' : '' }}">
       <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
         <div *ngIf="f.firstname.errors.required">Voornaam vereist</div>
+        <div *ngIf="f.firstname.errors.minlength">Voornaam moet minimum 3 karakters bevatten</div>
+        <div *ngIf="f.firstname.errors.maxlength">Voornaam mag maximaal 15 karakters bevatten</div>
       </div>
     </div>
     <div class="form-group">
-      <input type="text" formControlName="lastname" class="form-control" placeholder="Achternaam" name="lastname">
+      <input type="text" formControlName="lastname" class="form-control" placeholder="Achternaam" name="lastname" ngClass="{{submitted && f.lastname.errors ? 'is-invalid' : '' }}">
       <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
         <div *ngIf="f.lastname.errors.required">Achternaam vereist</div>
       </div>
     </div>
     <div class="form-group">
-      <input type="text" formControlName="username" class="form-control" placeholder="Gebruikersnaam" name="username">
+      <input type="text" formControlName="username" class="form-control" placeholder="Gebruikersnaam" name="username" ngClass="{{submitted && f.username.errors ? 'is-invalid' : '' }}">
       <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
         <div *ngIf="f.username.errors.required">Gebruikersnaam vereist</div>
       </div>
     </div>
     <div class="form-group">
-      <input type="email" formControlName="email" class="form-control" placeholder="E-mail" name="email">
+      <input type="email" formControlName="email" class="form-control" placeholder="E-mail" name="email" ngClass="{{submitted && f.email.errors ? 'is-invalid' : '' }}">
       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
         <div *ngIf="f.email.errors">Email vereist</div>
       </div>
     </div>
     <div class="form-group">
-      <input type="password" formControlName="password" class="form-control" placeholder="Wachtwoord" name="password">
+      <input type="password" formControlName="password" class="form-control" placeholder="Wachtwoord" name="password" ngClass="{{submitted && f.password.errors ? 'is-invalid' : '' }}">
       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
         <div *ngIf="f.password.errors.required">Wachtwoord vereist</div>
+        <div *ngIf="f.password.errors.minlength">Wachtwoord moet minimum 5 karakters bevatten</div>
       </div>
     </div>
     <div class="form-group">

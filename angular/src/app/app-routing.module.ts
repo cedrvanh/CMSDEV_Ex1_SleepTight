@@ -6,20 +6,22 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { LoginComponent } from './components/auth/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LandingComponent } from './components/auth/landing/landing.component';
-import { QuizQuestionsComponent } from './components/quiz/quiz-questions/quiz-questions.component';
+import { QuizComponent } from './components/quiz/quiz.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TipsComponent } from './components/tips/tips.component';
 import { FriendsComponent } from './components/friends/friends.component';
 import { HashtagCreateComponent } from './components/hashtags/create/create.component';
 import { HashtagsComponent } from './components/hashtags/hashtags.component';
 import { TrackingComponent } from './components/tracking/tracking.component';
+import { LogoutComponent } from './components/auth/logout/logout.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
     { path: 'landing', component: LandingComponent },
-    { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
-    { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-    { path: 'quiz', component: QuizQuestionsComponent, canActivate: [AuthGuard] },
+    { path: 'register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'logout', component: LogoutComponent },
+    { path: 'quiz', component: QuizComponent, canActivate: [AuthGuard] },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'tips', component: TipsComponent, canActivate: [AuthGuard] },
     { path: 'hashtags/create', component: HashtagCreateComponent, canActivate: [AuthGuard] },

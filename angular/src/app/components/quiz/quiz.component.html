@@ -1,10 +1,10 @@
-<!-- <main class="container quiz">
-    <section class="heading">
-      <h1>Slaap Quiz</h1>
+<main class="container quiz">
+    <div class="quiz__container" [innerHTML]="output.join('') | sanitizeHtml" ></div>
+    
+    <section class="quiz__buttons">
+        <span class="invalid-feedback"></span>
+        <button class="btn btn-primary" id="previous" (click)="previousSlide()">Previous Question</button>
+        <button class="btn btn-primary" id="next" (click)="nextSlide()">Next Question</button>
+        <button class="btn btn-primary" id="submit" (click)="onSubmit()">Submit Quiz</button>
     </section>
-    <app-quiz-questions></app-quiz-questions>
-
-    <button class="btn btn-primary" id="previous">Previous Question</button>
-    <button class="btn btn-primary" id="next">Next Question</button>
-    <button class="btn btn-primary" id="submit">Submit Quiz</button>
-</main> -->
+</main>

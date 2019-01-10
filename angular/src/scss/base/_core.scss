@@ -2,7 +2,7 @@
     margin: 0;
 }
 
-html {
+html, body {
    width: 100%;
    height: 100%;
    background: linear-gradient(to left, $primary-color, $secondary-color);
@@ -19,16 +19,17 @@ span {
 
 .heading {
     text-align: center;
-    margin: 5rem 0 2rem 0;
+    margin: 0 0 5rem 0;
 }
 
 .is-invalid {
-    border: 1px solid red;
-    padding: 5rem; 
+    border: 2px solid $danger-color !important;
 }
 
 .invalid-feedback {
-    color: red;
+    color: $danger-color;
+    font-weight: 700;
+    margin: 0.25rem 0 0 0;
 }
 
 .border {

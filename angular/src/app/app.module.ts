@@ -14,7 +14,6 @@ import { NavComponent } from './shared/nav/nav.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthGuard } from './guards/auth.guard';
 import { QuizComponent } from './components/quiz/quiz.component';
-import { QuizQuestionsComponent } from './components/quiz/quiz-questions/quiz-questions.component';
 import { SanitizeHtml } from './pipes/sanitize.pipe';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TipsComponent } from './components/tips/tips.component';
@@ -37,7 +36,6 @@ import { TrackingComponent } from './components/tracking/tracking.component';
     PageNotFoundComponent,
     NavComponent,
     QuizComponent,
-    QuizQuestionsComponent,
     SanitizeHtml,
     ProfileComponent,
     TipsComponent,

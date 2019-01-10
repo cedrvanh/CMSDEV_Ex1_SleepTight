@@ -5,8 +5,8 @@ form {
     flex-direction: column;
 
     & > a {
-        margin: 1rem 0;
         text-align: center;
+        color: $light-text-color;
     }
 }
 
@@ -22,7 +22,8 @@ form {
         outline: none;
         background: $accent-color;
         border: none;
-        
+        color: white;
+
         &::placeholder {
             color: $light-text-color;
         }
