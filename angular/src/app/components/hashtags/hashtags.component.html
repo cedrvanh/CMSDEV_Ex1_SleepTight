@@ -7,17 +7,17 @@
     Upload een foto
   </a>
   <div class="form-group">
-    <select class="form-control" name="filter">
-      <option value="new">Nieuwe Foto's</option>
-      <option value="likes">Populaire Foto's</option>
+    <select [(ngModel)]="selectedFilter" (change)="handleFilter()" class="form-control" name="filter">
+      <option value="desc">Nieuwe Foto's</option>
+      <option value="asc">Oude Foto's</option>
     </select>
   </div>
   <ng-container *ngIf="hashtags; else elseHashtags">
     <section class="hashtags" *ngFor="let photo of hashtags">
       <div class="photo">
-        <!-- <i class="icon">
-          <img src="../../../assets/svg/heart.svg">
-        </i> -->
+        <i class="icon" (click)="photo.acf.likes ? clickLike(photo.id, photo.acf.likes) : clickLike(photo.id, 0)">
+          <img id="like" src="../../../assets/svg/heart.svg">
+        </i>
         <figure>
           <img src="{{photo._embedded['wp:featuredmedia'][0].source_url}}">
         </figure>

@@ -3,27 +3,29 @@
 </header>
 
 <main class="container">
-    <div class="wrapper">
+    <div class="wrapper" (click)="goTo('tracking')">
         <h2>Stel je wekker in</h2>
         <i class="icon">
             <img src="../../assets/svg/arrow-right.svg">
         </i>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" (click)="goTo('quiz')">
         <h2>Leg de slaap quiz af</h2>
         <i class="icon">
             <img src="../../assets/svg/arrow-right.svg">
         </i>
     </div>
-    <h4>#Hashtag Contest</h4>
-    <section class="posts" *ngIf="hashtags">
-        <article class="post" *ngFor="let post of hashtags">
-            <figure class="post__image" [ngStyle]="{'background-image': 'url(' + post._embedded['wp:featuredmedia'][0].source_url + ')' }"></figure>
-            <div class="post__header">
-                <h3>{{post._embedded.author[0].name}}</h3>
-            </div>
-        </article>
-    </section>
+    <a routerLink="/hashtags">
+        <h4>#Hashtag Contest</h4>
+        <section class="posts" *ngIf="hashtags">
+            <article class="post" *ngFor="let post of hashtags">
+                <figure class="post__image" [ngStyle]="{'background-image': 'url(' + post._embedded['wp:featuredmedia'][0].source_url + ')' }"></figure>
+                <div class="post__header">
+                    <h3>{{post._embedded.author[0].name}}</h3>
+                </div>
+            </article>
+        </section>
+    </a>
 </main>
 
 

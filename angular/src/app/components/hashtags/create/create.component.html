@@ -1,15 +1,26 @@
+<header class="flex-icons">
+  <i class="icon">
+    <a routerLink="/hashtags"><img src="../../../assets/svg/arrow-left.svg"></a>
+  </i>
+</header>
+
 <main class="container">
   <h1>Upload een foto</h1>
   <span>Je foto wordt online geplaatst zodra die wordt goedgekeurd door moderators.</span>
-  <form>
+  <form class="form-wrapper" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <input class="form-control" type="text" placeholder="Hashtag">
+      <select [(ngModel)]="selectedHashtag" class="form-control" name="hashtags" ngClass="{{error ? 'is-invalid' : '' }}">
+        <ng-container *ngFor="let hashtag of hashtags">
+          <option value="{{hashtag.id}}" selected>
+            {{hashtag.name}}
+          </option>
+        </ng-container>
+      </select>
     </div>
     <div class="border"></div>
     <div class="form-group">
-      <input class="form-control" type="file" (change)="onFileChange($event)">
+      <input class="form-control" type="file" (change)="onFileChange($event)" ngClass="{{error ? 'is-invalid' : '' }}">
     </div>
-  
     <div class="form-group">
       <button class="btn btn-primary">
         Upload

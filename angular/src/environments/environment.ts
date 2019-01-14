@@ -10,7 +10,7 @@ export const environment = {
       auth: '/jwt-auth/v1/token',
       users: '/wp/v2/users',
       tips: '/wp/v2/tips',
-      hashtags: '/wp/v2/hashtag-posts',
+      hashtags: '/wp/v2/photos',
       acf: '/acf/v3'
     }
   }

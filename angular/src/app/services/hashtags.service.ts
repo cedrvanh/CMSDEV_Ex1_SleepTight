@@ -16,17 +16,23 @@ export class HashtagsService {
     return this.httpClient.get(`${this._apiUrl}?_embed`);
   }
 
+  public getHashtags(): Observable<any> {
+    return this.httpClient.get(`${environment.api.url}/wp/v2/hashtags`);
+  }
+
+  public getHashtagsPostsWithFilter(order): Observable<any> {
+    return this.httpClient.get(`${this._apiUrl}?_embed&order=${order ? '&order=' + order : ''}`);
+  }
+
   public postHashtagPost(data: object): Observable<any> {
     return this.httpClient.post(`${this._apiUrl}?status=pending`, data);
   }
 
-  public uploadPhoto(data): Observable<any> {
-    const headers = {
-      headers: new HttpHeaders({
-        'Content-Disposition': `attachment; filename=${data.get('file').name}`
-      })
-    };
+  public updateHashtagPost(id: Number, data: object): Observable<any> {
+    return this.httpClient.post(`${environment.api.url}/acf/v3/photos/${id}`, data);
+  }d
 
-    return this.httpClient.post(`${environment.api.url}/media`, data, headers);
+  public uploadPhoto(data, headers): Observable<any> {
+    return this.httpClient.post(`${environment.api.url}/wp/v2/media`, data, headers);
   }
 }

@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   public register(data: object): Observable<any> {
-    return this.httpClient.post(this._apiUrl, data);
+    return this.httpClient.post(`${environment.api.url}/wp/v2/users`, data);
   }
 
   public logout(): void {

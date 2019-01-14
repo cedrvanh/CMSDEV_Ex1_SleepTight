@@ -38,7 +38,7 @@ function sleep_register_hashtag() {
         'rewrite' => array('slug' => 'hashtag-post'),
         'hierarchical' => false,
         'show_in_rest' => true,
-        'rest_base' => 'hashtag-posts',
+        'rest_base' => 'photos',
         'menu_position' => 6,
         'menu_icon' => 'dashicons-format-image',
     )

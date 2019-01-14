@@ -10,6 +10,18 @@ form {
     }
 }
 
+select {
+    color: white;
+}
+
+input[type='file'] {
+    height: 100px;
+}
+
+label {
+    margin: 0.5rem 0;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -30,6 +42,3 @@ form {
     }
 }
 
-select {
-    color: white;
-}

@@ -2,10 +2,18 @@
 @import 'src/scss/abstracts/variables';
 
 .photo {    
+    position: relative;
+    z-index: 0;
     margin: 1rem 0 2rem 0;
     
     & img {
         border-radius: $primary-radius;
+    }
+
+    & > i {
+        position: absolute;
+        top: 1rem;
+        right: 1rem
     }
 }
 

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,11 +21,14 @@ import { FriendsComponent } from './components/friends/friends.component';
 import { HashtagCreateComponent } from './components/hashtags/create/create.component';
 import { HashtagsComponent } from './components/hashtags/hashtags.component';
 import { TrackingComponent } from './components/tracking/tracking.component';
+import { EditProfileComponent } from './components/profile/edit/edit.component';
+import { FriendDetailComponent } from './components/friends/friend-detail/friend-detail.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AuthenticationModule,
     RouterModule
@@ -43,6 +46,8 @@ import { TrackingComponent } from './components/tracking/tracking.component';
     HashtagCreateComponent,
     HashtagsComponent,
     TrackingComponent,
+    EditProfileComponent,
+    FriendDetailComponent,
   ],
   providers: [
     AuthGuard,

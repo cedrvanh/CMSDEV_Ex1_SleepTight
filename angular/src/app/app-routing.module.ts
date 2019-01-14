@@ -14,6 +14,8 @@ import { HashtagCreateComponent } from './components/hashtags/create/create.comp
 import { HashtagsComponent } from './components/hashtags/hashtags.component';
 import { TrackingComponent } from './components/tracking/tracking.component';
 import { LogoutComponent } from './components/auth/logout/logout.component';
+import { EditProfileComponent } from './components/profile/edit/edit.component';
+import { FriendDetailComponent } from './components/friends/friend-detail/friend-detail.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
@@ -23,11 +25,13 @@ const routes: Routes = [
     { path: 'logout', component: LogoutComponent },
     { path: 'quiz', component: QuizComponent, canActivate: [AuthGuard] },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'profile/edit/:id', component: EditProfileComponent, canActivate: [AuthGuard] },
     { path: 'tips', component: TipsComponent, canActivate: [AuthGuard] },
     { path: 'hashtags/create', component: HashtagCreateComponent, canActivate: [AuthGuard] },
     { path: 'hashtags', component: HashtagsComponent, canActivate: [AuthGuard] },
     { path: 'tracking', component: TrackingComponent, canActivate: [AuthGuard] },
     { path: 'friends', component: FriendsComponent, canActivate: [AuthGuard] },
+    { path: 'friend/:id', component: FriendDetailComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: '/landing', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];

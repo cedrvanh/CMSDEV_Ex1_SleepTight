@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { environment } from 'src/environments/environment';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +10,8 @@ import { environment } from 'src/environments/environment';
 export class ProfileComponent implements OnInit {
   public user;
   public id;
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService) { }
 
   ngOnInit() {
     this.getCurrentUser();

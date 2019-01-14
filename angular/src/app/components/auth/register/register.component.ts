@@ -19,8 +19,6 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.logout();
-
     this.registerForm = this.fb.group({
       firstname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       lastname:  ['', Validators.required],
@@ -47,6 +45,10 @@ export class RegisterComponent implements OnInit {
       password:  this.f.password.value
     };
 
-    this.router.navigate(['/home']);
+    this.authService.register(data)
+      .subscribe(res => {
+        this.router.navigate(['/login']);
+      });
+
   }
 }

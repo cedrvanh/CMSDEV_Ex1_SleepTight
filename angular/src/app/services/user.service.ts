@@ -21,7 +21,7 @@ export class UserService {
   }
 
   public getUserById(id: Number): Observable<any> {
-    return this.httpClient.get(`${this._apiUrl}${id}`);
+    return this.httpClient.get(`${this._apiUrl}/${id}`);
   }
 
   public postFields(id: number, data: object): Observable<any> {

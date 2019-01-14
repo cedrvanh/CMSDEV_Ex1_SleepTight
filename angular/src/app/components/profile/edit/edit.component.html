@@ -1,0 +1,32 @@
+<header class="flex-icons">
+    <i class="icon">
+      <a (click)="goBack()"><img src="../../../assets/svg/arrow-left.svg"></a>
+    </i>
+</header>
+
+<main class="container" *ngIf="user">
+    <section class="user__head">
+        <figure>
+          <img src="{{user.avatar_urls[96]}}">
+        </figure>
+        <h1>{{user.name}}</h1>
+        <span>Slaap Type: {{user.acf.sleep_type}}</span>
+    </section>
+    <section class="user__info">
+      <div class="form-group">
+        <label for="username">Naam: </label>
+        <input [(ngModel)]="username" class="form-control" type="text" placeholder="{{user.name}}" name="username">
+      </div>
+      <div class="form-group">
+        <label for="schools">School: </label>
+        <select [(ngModel)]="selectedSchool" class="form-control" name="schools" ngClass="{{error ? 'is-invalid' : '' }}">
+          <ng-container *ngFor="let school of schools">
+            <option value="{{school}}" selected>
+              {{school}}
+            </option>
+          </ng-container>
+        </select>
+      </div>
+    </section>
+    <a class="btn btn-primary" (click)="onSubmit()">Opslaan</a>
+  </main>
