@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HashtagsService } from 'src/app/services/hashtags.service';
 import { UserService } from 'src/app/services/user.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-hashtags',
@@ -13,7 +14,8 @@ export class HashtagsComponent implements OnInit {
   public selectedFilter = 'desc';
   constructor(
     private hashtagsService: HashtagsService,
-    private userService: UserService) { }
+    private userService: UserService,
+    private location: Location) { }
 
   ngOnInit() {
     this.getHashtagPosts();
@@ -84,5 +86,13 @@ export class HashtagsComponent implements OnInit {
     const like = document.getElementById('like');
     console.log(like);
     like.setAttribute('fill', 'red');
+  }
+
+  deletePost(id: number) {
+    this.hashtagsService.delete(id)
+      .subscribe(() => {
+        console.log('Deleted');
+        window.location.reload();
+      });
   }
 }

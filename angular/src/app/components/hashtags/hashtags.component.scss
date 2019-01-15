@@ -10,10 +10,16 @@
         border-radius: $primary-radius;
     }
 
-    & > i {
+    & > .like {
         position: absolute;
         top: 1rem;
         right: 1rem
+    }
+
+    & > .cross {
+        position: absolute;
+        top: 1rem;
+        left: 1rem
     }
 }
 

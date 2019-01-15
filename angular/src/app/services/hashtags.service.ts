@@ -30,9 +30,13 @@ export class HashtagsService {
 
   public updateHashtagPost(id: Number, data: object): Observable<any> {
     return this.httpClient.post(`${environment.api.url}/acf/v3/photos/${id}`, data);
-  }d
+  }
 
   public uploadPhoto(data, headers): Observable<any> {
     return this.httpClient.post(`${environment.api.url}/wp/v2/media`, data, headers);
+  }
+
+  public delete(id: Number): Observable<any> {
+    return this.httpClient.delete(`${environment.api.url}/wp/v2/photos/${id}`);
   }
 }
